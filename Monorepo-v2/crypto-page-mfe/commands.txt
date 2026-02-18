@@ -1,0 +1,42 @@
+
+# Workspace - monorepo
+
+ng new crypto-market-mfe --create-application=false
+
+Fase I: Developer
+---------------------------------------------------------------------------------------------------
+# MFE -> Host/Shell/Contenedora
+ng g application coinmarket-mfe
+
+# MFE -> Remotas
+ng g application cryptocurrencies-mfe
+
+ng g application watchlist-mfe
+
+ng g application dashboard-mfe
+
+ng g library library-mfe
+
+
+# Library - MFEs
+
+npm i @angular-architects/native-federation
+
+ng g @angular-architects/native-federation:init --project=store-mfe --port=4200 --type dynamic-host
+
+ng g @angular-architects/native-federation:init --project=cryptocurrencies-mfe --port=4201 --type=remote
+
+ng g @angular-architects/native-federation:init --project=watchlist-mfe --port=4202  --type=remote
+
+ng g @angular-architects/native-federation:init --project=dashboard-mfe --port=4203  --type=remote
+
+#ng build app-library --configuration development
+ng build library-mfe --watch --configuration development
+
+ng build library-mfe
+
+
+ng serve cryptocurrencies-mfe
+ng serve watchlist-mfe
+ng serve dashboard-mfe
+ng serve coinmarket-mfe
