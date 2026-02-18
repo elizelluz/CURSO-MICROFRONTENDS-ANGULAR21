@@ -3,11 +3,12 @@ import { Component, computed, inject, OnInit, signal  } from '@angular/core';
 import { CryptocurrenciesService } from '../../../../services/cryptocurrencies.service';
 import { Coin } from '../../../../models/coin.interface';
 import { MFEvents } from '../../../../../../../../../library-mfe/src/lib/events/events-enums';
+import { CryptocurrenciesTopPstComponent } from '../../presentation/cryptocurrencies-top-pst/cryptocurrencies-top-pst.component';
 
 
 @Component({
-  selector: 'app-cryptocurrencies-top-ctn.component',
-  imports: [],
+  selector: 'app-cryptocurrencies-top-ctn',
+  imports: [CryptocurrenciesTopPstComponent],
   templateUrl: './cryptocurrencies-top-ctn.component.html',
   styleUrl: './cryptocurrencies-top-ctn.component.css',
 })
